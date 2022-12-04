@@ -1,8 +1,18 @@
-import react from "react";
+import react, { useState } from "react";
 import Logo from "../../Assets/images/books-logo.svg";
 import SearchIcon from "../../Assets/images/search-icon.svg";
+import axios from "axios";
 
 const SearchBar = () => {
+  const apiKey = 'AIzaSyD4wi9GN7gRHWmVHAr6CyNqFYolZTp29U8';
+  const [search, setSearch] = useState("");
+  const searchBook = (event) => {
+    if (event.key==="Enter") {
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
+      .then(results=>console.log(results.data.items))
+      .catch(error=>console.error(error))
+    }
+  }
   return (
     <>
       <div className="flex h-screen">
@@ -23,6 +33,7 @@ const SearchBar = () => {
               type="text"
               className="px-3 py-3 rounded-full w-full indent-9 bg-gray-800 text-gray-400 transition-colors focus:text-gray-700 focus:bg-white focus:border-violet-400 focus:outline-none"
               placeholder="Type a book name..."
+              value={search} onChange={e=>setSearch(e.target.value)} onKeyPress={searchBook}
             />
           </div>
         </div>
