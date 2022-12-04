@@ -8,6 +8,7 @@ module.exports = {
     colors: {
       gray: colors.gray,
       violet: colors.violet,
+      white: colors.white
     },
   },
   plugins: [],

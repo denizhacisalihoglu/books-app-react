@@ -21,7 +21,7 @@ const SearchBar = () => {
             />
             <input
               type="text"
-              className="px-3 py-3 rounded-full w-full indent-9 bg-gray-800 text-gray-400 focus:text-gray-700 focus:bg-white focus:border-violet-400 focus:outline-none"
+              className="px-3 py-3 rounded-full w-full indent-9 bg-gray-800 text-gray-400 transition-colors focus:text-gray-700 focus:bg-white focus:border-violet-400 focus:outline-none"
               placeholder="Type a book name..."
             />
           </div>
