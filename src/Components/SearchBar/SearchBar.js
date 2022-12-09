@@ -4,11 +4,10 @@ import SearchIcon from "../../Assets/images/search-icon.svg";
 import axios from "axios";
 
 const SearchBar = () => {
-  const apiKey = 'AIzaSyD4wi9GN7gRHWmVHAr6CyNqFYolZTp29U8';
   const [search, setSearch] = useState("");
   const searchBook = (event) => {
     if (event.key==="Enter") {
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_API}`)
       .then(results=>console.log(results.data.items))
       .catch(error=>console.error(error))
     }
