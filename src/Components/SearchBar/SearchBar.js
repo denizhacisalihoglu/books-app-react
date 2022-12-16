@@ -1,22 +1,25 @@
 import react, { useState } from "react";
 import Logo from "../../Assets/images/books-logo.svg";
 import SearchIcon from "../../Assets/images/search-icon.svg";
-import SearchResultsItem from "../SearchResultsItem/SearchResultsItem";
-import axios from "axios";
+
+import {
+  useNavigate,
+  createSearchParams,
+} from 'react-router-dom';
 
 const SearchBar = () => {
+  const navigate = useNavigate();
+ 
   const [search, setSearch] = useState("");
-  const [searchResults, setsearchResults] = useState([]);
   const searchBook = (event) => {
-    if (event.key === "Enter") {
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_API}`)
-        .then(response => {
-          setsearchResults(response.data.items);
-          console.log(response.data.items);
-        })
-        .catch((error) => console.error({ error }));
-    }
+    if (event.key !== 'Enter') return;
+
+    navigate({
+      pathname: '/search',
+      search: `?${search}`,
+    });
   }
+
   return (
     <>
       <div className="flex h-screen">
@@ -39,13 +42,7 @@ const SearchBar = () => {
               placeholder="Type a book name..."
               value={search} onChange={e => setSearch(e.target.value)} onKeyPress={searchBook}
             />
-            {searchResults.length}
-            {searchResults.map((book, i) => {
-              const {volumeInfo, saleInfo} = book;
-              return (
-                <SearchResultsItem key={i} volumeInfo={volumeInfo} saleInfo={saleInfo} />
-              );
-            })}
+            
           </div>
         </div>
       </div>
