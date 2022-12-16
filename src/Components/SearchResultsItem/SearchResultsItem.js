@@ -17,7 +17,7 @@ const SearchResultsItem = (props) => {
     <>
       <div className="flex h-auto pb-2 pt-2">
         <div className="picture block">
-          <img className="w-96 pt-2" src={book.thumbnail} alt={book.altText} />
+          <a href="/"><img className="w-96 pt-2" src={book.thumbnail} alt={book.altText} /></a>
         </div>
         <div className="content pl-5">
           <div className="title text-violet-500 text-xl">

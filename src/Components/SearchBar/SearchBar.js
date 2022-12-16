@@ -22,7 +22,7 @@ const SearchBar = () => {
       <div className="flex h-screen">
         <div className="m-auto text-left w-5/12">
           <h3>
-            <img src={Logo} alt="Logo" />
+            <a href="/"><img src={Logo} alt="Logo" /></a>
           </h3>
           <p className="text-md text-gray-300">
             Which book are you looking for?
