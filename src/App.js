@@ -11,7 +11,7 @@ function App() {
     <div className="App">
     <Routes>
       <Route exact path='/' element={<Home />} />
-      <Route exact path="/search/:query" element={<SearchResults/>} />
+      <Route exact path="/search/" element={<SearchResults/>} />
     </Routes>
     </div>
   );

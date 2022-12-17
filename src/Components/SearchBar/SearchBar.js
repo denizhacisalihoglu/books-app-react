@@ -15,9 +15,11 @@ const SearchBar = () => {
     if (event.key !== 'Enter') return;
 
     navigate({
-      pathname: '/search',
-      search: `?${search}`,
-    });
+      pathname: "search",
+      search: createSearchParams({
+          q: search
+      }).toString()
+  });
   }
 
   return (
