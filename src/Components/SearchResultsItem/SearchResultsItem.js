@@ -26,7 +26,7 @@ const SearchResultsItem = (props) => {
           <div className="copyright-info flex text-sm">
             <div className="writers">
               {book.authors.map((author, i) => {
-                return <a href="#" className="text-violet-500 hover:text-violet-600">{author}{(i < book.authors.length - 1) && `, `}</a>
+                return <a href="#" key={i} className="text-violet-500 hover:text-violet-600">{author}{(i < book.authors.length - 1) && `, `}</a>
               })}</div>
             <div className="year text-violet-200 pl-1"> · {book.publishedDate}</div>
           </div>
