@@ -12,7 +12,6 @@ const SearchResultsItem = (props) => {
     publishedDate: bookData.publishedDate.split('-')[0],
     link: bookData.canonicalVolumeLink
   }
-  console.log(bookData);
   return (
     <>
       <div className="flex h-auto pb-2 pt-2">

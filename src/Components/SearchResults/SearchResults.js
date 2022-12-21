@@ -9,7 +9,6 @@ const SearchResults = (props) => {
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${props.search}&key=${process.env.REACT_APP_GOOGLE_API}`)
         .then(response => {
           setsearchResults(response.data.items);
-          console.log(response.data.items);
         })
         .catch((error) => console.error({ error }));
     }
